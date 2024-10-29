@@ -1,0 +1,630 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inconsolata", monospace;
+    background-color: transparent;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/public/Background.png'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    opacity: 0.5; 
+    z-index: -1; 
+}
+/* Navbar */
+.navbar {
+    position: fixed; /* Fixes the navbar at the top */
+    top: 0; /* Aligns it to the top of the page */
+    left: 0;
+    width: 100%; /* Makes the navbar take the full width */
+    z-index: 1000; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: transparent;
+    color: rgb(43, 43, 43);
+    border: 2px solid rgb(43, 43, 43);
+    padding-bottom: 0 !important;
+}
+
+.logo {
+    margin-left: 1rem;
+    width: 120px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin-right: 1rem;
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.nav-link {
+    position: relative;
+    color: rgb(43, 43, 43);
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+.nav-link:hover {
+    color: #ff4747;
+}
+.nav-link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #ff4747;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-btn {
+    background-color: transparent;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-top: 1px;
+    padding-bottom: 2px;
+    transition: transform 0.3s ease;
+}
+.nav-btn:hover {
+    transform: scale(1.1);
+    color: #e63e3e;
+    border-color: #e63e3e;
+}
+
+/* First Section */
+.section {
+    display: flex;
+    padding: 2rem;
+    align-items: center;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    z-index: 1; /* Ensure content is above the background */
+    position: relative;
+    height: 100vh;
+}
+
+
+.section-description {
+    padding-left: 2rem;
+}
+
+.section-description p{
+    font-size: 35px;
+    font-weight: 500;
+    animation: slideInUp 1s ease-out;
+}
+
+.section-description h2 {
+    margin-bottom: 1rem;
+    font-size: 60px;
+    font-weight: 800;
+    animation: slideInLeft 1s ease-out;
+}
+.join-now-btn {
+    display: inline-block; /* This ensures the element responds to transform */
+    border: 2px solid rgb(43, 43, 43);
+    padding: 10px 30px;
+    border-radius: 15px;
+    text-decoration: none;  /* This removes the underline */
+    color: rgb(43, 43, 43);
+    font-size: 30px;
+    font-weight: 500;
+    transition: transform 0.3s ease !important;
+}
+
+.join-now-btn:hover {
+    transform: scale(1.1) !important;
+    color: #f04141;
+    font-weight: bolder;
+    border: 3px solid #f04141;
+}
+
+
+.about-section {
+    font-size: 35px;
+    font-weight: 500;
+    animation: slideInUp 1s ease-out;
+    background-color: transparent;
+    z-index: 1; /* Ensure the content is layered above the background */
+    position: relative;
+    
+    
+}
+.about-section h2 {
+    margin-bottom: 1rem;
+    font-size: 60px;
+    font-weight: 800;
+    animation: slideInLeft 1s ease-out;
+}
+
+hr {
+    margin-top: 80px;
+    border: 1px solid black;
+}
+
+/* Contact Section */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.contact-image {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    padding-left: 50px;
+}
+.contact-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 20px;
+    position: relative;
+    z-index: 1; /* Ensure the image is above the pseudo-element */
+    animation: fadeIn 1s ease-out;
+}
+
+/* Pseudo-element for opacity fade effect */
+.contact-image::before {
+    content: '';
+    position: absolute;
+    border-radius: 20px; /* Match the image's border-radius */
+}
+
+.contact-page {
+    padding-left: 2rem;
+    font-size: 35px;
+    font-weight: 500;
+    animation: slideInUp 1s ease-out;
+}
+
+.register-page {
+    margin-top: 20%;
+    padding-top: 50px;
+    padding-bottom: 100px;
+    max-width: 1000px; /* Limit the width for better readability */
+    background-color: rgba(255, 255, 255, 0.3); /* White background with some transparency */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.register-page h2 {
+    text-align: center;
+    font-size: 50px;
+    color: rgb(43, 43, 43); /* Text color */
+    margin-bottom: 50px; /* Space below the title */
+    font-weight: 700;
+}
+
+.register-option {
+    text-align: center;
+}
+/* Radio Button Styles */
+.register-page label {
+    display: inline; /* Stack labels vertically */
+    font-size: 22px; /* Larger font for labels */
+    margin: 15px 0; /* Spacing between labels */
+    cursor: pointer;
+    padding-right: 20px;
+    padding-left: 20px; /* Pointer cursor for better UX */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+
+}
+
+/* Custom Radio Button Style */
+input[type="radio"] {
+    margin-right: 10px; /* Space between the radio button and label */
+    transform: scale(1.2); /* Increase size of radio button */
+}
+
+/* Hover Effect for Labels */
+.register-page label:hover {
+    background-color: rgba(255, 71, 71, 0.2); /* Light red background on hover */
+    border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+
+/* General Form Styles */
+form {
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center elements horizontally */
+    padding: 20px; /* Spacing around the form */
+    margin: 20px auto; /* Center the form with auto margins */
+    width: 100%; /* Full width */
+    max-width: 500px; /* Max width for larger screens */
+    background-color: rgba(255, 255, 255, 0.5); /* White background with some transparency */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Form Heading */
+form h2 {
+    margin-bottom: 20px; /* Space below heading */
+    font-size: 32px; /* Font size */
+    color: #333; /* Dark color */
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="email"],
+select,
+input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding inside input */
+    margin: 10px 0; /* Margin between inputs */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 16px; /* Font size */
+    transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Focus Effect on Input Fields */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select,
+input[type="password"]:focus {
+    border-color: #ff4747; /* Change border color on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Radio Button Styles */
+.register-page label {
+    display: inline-block; /* Stack labels vertically */
+    font-size: 22px; /* Larger font for labels */
+    margin: 15px 0; /* Spacing between labels */
+    cursor: pointer;
+    padding-right: 20px;
+    padding-left: 20px; /* Pointer cursor for better UX */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Custom Radio Button Style */
+input[type="radio"] {
+    margin-right: 10px; /* Space between the radio button and label */
+    transform: scale(1.2);
+    font-size: 20px !important; /* Increase size of radio button */
+}
+
+/* Hover Effect for Labels */
+.register-page label:hover {
+    background-color: rgba(255, 71, 71, 0.2); /* Light red background on hover */
+    border-radius: 5px; /* Rounded corners for hover effect */
+}
+
+/* Submit Button Styles */
+button[type="submit"] {
+    padding: 10px 20px; /* Padding for button */
+    margin-top: 20px; /* Space above button */
+    border: none; /* No border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #ff4747; /* Red background */
+    color: white; /* White text color */
+    font-size: 18px; /* Font size */
+    cursor: pointer; /* Pointer cursor */
+    transition: background-color 0.3s ease; /* Smooth transition for background color */
+}
+
+/* Hover Effect for Submit Button */
+button[type="submit"]:hover {
+    background-color: #e63e3e; /* Darker red on hover */
+}
+
+
+
+/* Media Queries for Responsive Design */
+@media (max-width: 600px) {
+    .register-page {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+
+    .register-page h2 {
+        font-size: 40px; /* Smaller title font */
+    }
+
+    .register-page label {
+        font-size: 18px; /* Smaller label font */
+    }
+
+    button {
+        font-size: 18px; /* Smaller button font */
+    }
+}
+
+/* Profile Section */
+/* Profile Card Styling */
+.profile-section {
+    margin-top: 20% !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.6); /* Light transparent background */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Slightly darker shadow */
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px; /* Limit max width */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+}
+
+.profile-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.profile-info {
+    width: 100%;
+    font-size: 1.2rem;
+    color: #444;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.profile-info p {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    background-color: rgba(243, 243, 243, 0.8);
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+    width: 60%;
+}
+
+.profile-info p:hover {
+    background-color: rgba(255, 71, 71, 0.1); /* Light red on hover */
+}
+
+.profile-info p strong {
+    font-weight: 600;
+    color: #333;
+}
+
+.profile-info p i {
+    color: #ff4747; /* Icon color for consistency */
+    font-size: 1.5rem;
+}
+
+/* Button Styles */
+.profile-section button {
+    background-color: #ff4747;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+    margin-top: 1.5rem;
+}
+
+.profile-section button:hover {
+    background-color: #e63e3e;
+    transform: scale(1.05);
+}
+
+.profile-section button:active {
+    transform: scale(1);
+}
+
+/* Additional Styling for Medical Information List */
+.medical-info {
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.medical-info li {
+    display: flex;
+    align-items: center;
+    background-color: rgba(243, 243, 243, 0.8);
+    border-radius: 8px;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    width: 80%;
+}
+
+.medical-info li:hover {
+    background-color: rgba(255, 71, 71, 0.1);
+}
+
+.medical-info li strong {
+    color: #333;
+    font-weight: 600;
+}
+
+/* Modal Styles */
+.modal-body p {
+    font-size: 1.2rem;
+    color: #333;
+}
+.search-page {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}   
+
+.search-page h3 {
+    margin-top: 20px; /* Space above the results heading */
+    color: #333; /* Darker color for better contrast */
+}
+
+.search-page label {
+    display: block; /* Stack labels and inputs */
+    margin: 10px 0; /* Space between labels */
+}
+
+.search-page input[type="text"],
+.search-page select {
+    width: 150%; /* Full width inputs */
+    padding: 10px; /* Padding for input fields */
+    border: 1px solid #ccc; /* Border for input fields */
+    border-radius: 15px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding in total width */
+    margin-top: 5px; /* Space between label and input */
+    background-color: transparent;
+    border: 2px solid black;
+
+}
+
+.search-page button {
+    background-color: transparent; /* Bootstrap primary color */
+    color: black; /* White text for button */
+    border: none; /* No border */
+    border-radius: 20px; /* Rounded corners */
+    border: 2px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 100px;
+    height: 50px;
+    margin-top: 40px;
+    transition: transform 0.3s ease
+}
+
+.search-page button:hover {
+    color: #e63e3e;
+    border-color: #e63e3e;
+    transform: scale(1.1);
+}
+
+.search-page ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.search-page li {
+    padding: 10px; /* Padding for list items */
+    border-bottom: 1px solid #ccc; /* Divider for items */
+}
+
+.search-page li:last-child {
+    border-bottom: none; /* Remove divider for last item */
+}
+
+.search-result {
+    margin-top: 20px; /* Space above the results section */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-result ul {
+    list-style-type: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+}
+
+.search-result li {
+    padding: 10px; /* Padding for list items */
+    border: 1px solid #ccc; /* Border for items */
+    border-radius: 4px; /* Rounded corners */
+    margin: 5px 0; /* Space between items */
+    background-color: #fff; /* White background for items */
+    transition: box-shadow 0.3s; /* Smooth transition for shadow */
+}
+
+.search-result li:hover {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow on hover */
+}
+
+.search-result li span {
+    font-weight: bold; /* Make certain text bold for emphasis */
+}
+
+
+
+
+
+
+
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+@keyframes slideInUp {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+
+
+/* Error Message Styling */
+.error-message {
+    color: red; /* Red color for error messages */
+    font-size: 14px; /* Font size */
+    font-weight: bold; /* Make it bold */
+    margin-top: 5px; /* Space above error message */
+    background-color: rgba(255, 0, 0, 0.1); /* Light red background */
+    border: 1px solid red; /* Optional border for emphasis */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.invalid-feedback {
+    display: block; /* Show the error message */
+    color: red; /* Red color for errors */
+    font-size: 0.9em; /* Smaller font size */
+}

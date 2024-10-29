@@ -1,0 +1,15 @@
+version: '3'
+services:
+  lifelink-frontend:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
+
+  lifelink-backend:
+    build: ./backend
+    ports:
+      - "5001:5001"
+    environment:
+      - MONGO_URI=mongodb+srv://ouirinisalma1:M7KzsjBzw0VF3HM8@cluster0.ao3wc.mongodb.net/LifeLinkDB?retryWrites=true&w=majority&appName=Cluster0
